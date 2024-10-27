@@ -56,6 +56,29 @@ function error_exit
 echo ''
 
 
+
+#requirements test -----------------------------------------------------------------------------------------
+
+binary_kubectl="kubectl"
+binary_helm="helm"
+
+command -v "kubectl" > NUL 2>&1
+
+if [ $? -ne 0 ]; then
+  echo "The binary 'binary_kubectl' is not present in your PATH system."
+  echo "please install Kubectl (more info : https://kubernetes.io/fr/docs/tasks/tools/install-kubectl/)"
+  exit 1
+fi
+
+command -v "helm" > NUL 2>&1
+
+if [ $? -ne 0 ]; then
+  echo "The binary 'binary_helm' is not present in your PATH system."
+  echo "please install Helm (more info : https://helm.sh/docs/intro/install/)"
+  exit 1
+fi
+
+
 # script mode asking ---------------------------------------------------------------------------------------
 
 echo "Choose your action :
